@@ -1,6 +1,6 @@
 <launch>
 
-
+    <arg name="bag"         default="/home/patrick/datasets/tum/dataset-room2_512_16.bag" />
     <!-- MASTER NODE! -->
     <node name="run_serial_msckf" pkg="ov_msckf" type="run_serial_msckf" output="screen" clear_params="true" required="true">
 <!--        <node name="run_serial_msckf" pkg="ov_msckf" type="run_serial_msckf" output="screen" clear_params="true" required="true" launch-prefix="gdb -ex run &#45;&#45;args">-->
@@ -11,7 +11,7 @@
         <param name="topic_camera1"  type="string" value="/cam1/image_raw" />
 
         <!-- bag parameters -->
-        <param name="path_bag"    type="string" value="/home/patrick/datasets/tum/dataset-room1_512_16.bag" />
+        <param name="path_bag"    type="string" value="$(arg bag)" />
 <!--        <param name="path_gt"     type="string" value="$(find ov_data)/tum_vi/dataset-room1_512_16.csv" />-->
         <param name="bag_start"   type="int"    value="1" />
         <param name="bag_durr"    type="int"    value="-1" />
@@ -27,7 +27,7 @@
         <param name="calib_camimu_dt"        type="double" value="0.0" />
         <param name="max_clones"             type="int"    value="11" />
         <param name="max_slam"               type="int"    value="30" />
-        <param name="max_cameras"            type="int"    value="2" />
+        <param name="max_cameras"            type="int"    value="1" />
         <param name="dt_slam_delay"          type="double" value="5" />
         <param name="feat_representation"    type="string" value="ANCHORED_3D" />
         <param name="init_window_time"       type="double" value="1.0" />

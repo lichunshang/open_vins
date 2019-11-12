@@ -1,5 +1,5 @@
 <launch>
-
+    <arg name="bag"         default="/home/patrick/datasets/eth/V1_01_easy.bag" />
 
     <!-- MASTER NODE! -->
     <node name="run_serial_msckf" pkg="ov_msckf" type="run_serial_msckf" output="screen" clear_params="true" required="true">
